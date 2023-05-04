@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="ActivationTests">
+    <test name="SaveBooking">
+        <classes>
+            <class name="tests.booking.TestSaveBooking"/>
+        </classes>
+    </test>
+    <test name="GetBooking">
+        <classes>
+            <class name="tests.booking.TestGetBooking"/>
+        </classes>
+    </test>
+    <test name="UpdateBooking">
+        <classes>
+            <class name="tests.booking.TestUpdateBooking"/>
+        </classes>
+    </test>
+    <test name="DeleteBooking">
+        <classes>
+            <class name="tests.booking.TestDeleteBooking"/>
+        </classes>
+    </test>
+</suite>
