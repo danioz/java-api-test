@@ -10,7 +10,6 @@ public class TestDeleteBooking extends BookingTestBase {
     public void deleteBooking() {
         //given
         final var requestBodyPost = readJSONFromFile("saveBooking.json");
-        final var props = loadProperties("booking");
         final var responsePost = invokePost(requestBodyPost, "booking", BOOKING);
         final var bookingId = getFromJSONString(responsePost.asString(), "bookingid");
 

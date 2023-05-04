@@ -26,9 +26,16 @@ public class TestUpdateBooking extends BookingTestBase {
                 , props.getProperty("bookingRequest"));
 
         //when
-        final var responseUpdate = invoke(requestBody, Method.PUT, "booking", BOOKINGID, bookingId);
+        final var response = invoke(requestBody, Method.PUT, "booking", BOOKINGID, bookingId);
 
         //then
-        assertThat(responseUpdate.statusCode()).isEqualTo(200);
+        assertThat(response.statusCode()).isEqualTo(200);
+        assertThat(getFromJSONString(response.asString(),"$..firstname")).contains("Arnold");
+        assertThat(getFromJSONString(response.asString(),"$..lastname")).contains("Black");
+        assertThat(Integer.parseInt(getFromJSONString(response.asString(),"totalprice"))).isEqualTo(200);
+        assertThat(Boolean.parseBoolean(getFromJSONString(response.asString(),"depositpaid"))).isTrue();
+        assertThat(getFromJSONString(response.asString(),"$..checkin")).contains("2018-01-01");
+        assertThat(getFromJSONString(response.asString(),"$..checkout")).contains("2019-01-01");
+        assertThat(getFromJSONString(response.asString(),"$..additionalneeds")).contains("Dinner");
     }
 }
